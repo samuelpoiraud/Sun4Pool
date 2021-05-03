@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="fr.ac6.managedbuild.toolchain.gnu.cross.base.1560445868">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="fr.ac6.managedbuild.toolchain.gnu.cross.base.1560445868" moduleId="org.eclipse.cdt.core.settings" name="Default">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildProperties="" description="" id="fr.ac6.managedbuild.toolchain.gnu.cross.base.1560445868" name="Default" parent="org.eclipse.cdt.build.core.emptycfg">
+					<folderInfo id="fr.ac6.managedbuild.toolchain.gnu.cross.base.1560445868.280298680" name="/" resourcePath="">
+						<toolChain id="fr.ac6.managedbuild.toolchain.gnu.cross.base.833914810" name="Ac6 STM32 MCU GCC" superClass="fr.ac6.managedbuild.toolchain.gnu.cross.base">
+							<option id="fr.ac6.managedbuild.option.gnu.cross.prefix.1048163818" name="Prefix" superClass="fr.ac6.managedbuild.option.gnu.cross.prefix"/>
+							<option id="fr.ac6.managedbuild.option.gnu.cross.path.334376362" name="Path" superClass="fr.ac6.managedbuild.option.gnu.cross.path"/>
+							<option id="fr.ac6.managedbuild.option.gnu.cross.mcu.482216509" name="Mcu" superClass="fr.ac6.managedbuild.option.gnu.cross.mcu"/>
+							<option id="fr.ac6.managedbuild.option.gnu.cross.board.368773481" name="Board" superClass="fr.ac6.managedbuild.option.gnu.cross.board"/>
+							<option id="fr.ac6.managedbuild.option.gnu.cross.core.843228669" name="Core" superClass="fr.ac6.managedbuild.option.gnu.cross.core"/>
+							<option id="fr.ac6.managedbuild.option.gnu.cross.fpu.1253834655" name="Floating point hardware" superClass="fr.ac6.managedbuild.option.gnu.cross.fpu"/>
+							<option id="fr.ac6.managedbuild.option.gnu.cross.floatabi.144339978" name="Floating-point ABI" superClass="fr.ac6.managedbuild.option.gnu.cross.floatabi"/>
+							<option id="fr.ac6.managedbuild.option.gnu.cross.instructionSet.1009471068" name="Instruction Set" superClass="fr.ac6.managedbuild.option.gnu.cross.instructionSet"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="fr.ac6.managedbuild.targetPlatform.gnu.cross.1259571141" isAbstract="false" osList="all" superClass="fr.ac6.managedbuild.targetPlatform.gnu.cross"/>
+							<builder id="fr.ac6.managedbuild.builder.gnu.cross.646476100" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" superClass="fr.ac6.managedbuild.builder.gnu.cross"/>
+							<tool id="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.2032071100" name="MCU GCC Compiler" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.compiler">
+								<option id="gnu.c.compiler.option.preprocessor.def.symbols.1574822373" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="NRF52832_XXAA"/>
+								</option>
+								<inputType id="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.c.1271212715" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.c"/>
+								<inputType id="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.s.1956005490" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.s"/>
+							</tool>
+							<tool id="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.1754050708" name="MCU G++ Compiler" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler">
+								<inputType id="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.input.cpp.501275643" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.input.cpp"/>
+								<inputType id="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.input.s.650807286" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.input.s"/>
+							</tool>
+							<tool id="fr.ac6.managedbuild.tool.gnu.cross.c.linker.2000620156" name="MCU GCC Linker" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.linker"/>
+							<tool id="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.2047352961" name="MCU G++ Linker" superClass="fr.ac6.managedbuild.tool.gnu.cross.cpp.linker">
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.2118733705" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="fr.ac6.managedbuild.tool.gnu.archiver.1291388757" name="MCU GCC Archiver" superClass="fr.ac6.managedbuild.tool.gnu.archiver"/>
+							<tool id="fr.ac6.managedbuild.tool.gnu.cross.assembler.1774444041" name="MCU GCC Assembler" superClass="fr.ac6.managedbuild.tool.gnu.cross.assembler">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1163909685" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+								<inputType id="fr.ac6.managedbuild.tool.gnu.cross.assembler.input.968018697" superClass="fr.ac6.managedbuild.tool.gnu.cross.assembler.input"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="Projet-NRF52.null.1399736259" name="Projet-NRF52"/>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Default">
+			<resource resourceType="PROJECT" workspacePath="/Domoteek"/>
+		</configuration>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="fr.ac6.managedbuild.toolchain.gnu.cross.base.6329973;fr.ac6.managedbuild.toolchain.gnu.cross.base.6329973.862365358;fr.ac6.managedbuild.tool.gnu.cross.c.compiler.1972244177;fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.c.1831603961">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.2094714930;ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.2094714930.1921550004;fr.ac6.managedbuild.tool.gnu.cross.c.compiler.1821489990;fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.c.1737990269">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.2094714930;ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.2094714930.1921550004;fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.741538415;fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.input.cpp.1074715974">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="fr.ac6.managedbuild.toolchain.gnu.cross.base.1560445868;fr.ac6.managedbuild.toolchain.gnu.cross.base.1560445868.280298680;fr.ac6.managedbuild.tool.gnu.cross.c.compiler.2032071100;fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.c.1271212715">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.2094714930;ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.2094714930.1921550004;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.1854526329;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input.1560608197">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="fr.ac6.managedbuild.toolchain.gnu.cross.base.6329973;fr.ac6.managedbuild.toolchain.gnu.cross.base.6329973.862365358;fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.1317231131;fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.input.cpp.1015758277">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="fr.ac6.managedbuild.toolchain.gnu.cross.base.1560445868;fr.ac6.managedbuild.toolchain.gnu.cross.base.1560445868.280298680;fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.1754050708;fr.ac6.managedbuild.tool.gnu.cross.cpp.compiler.input.cpp.501275643">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.2094714930;ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.2094714930.1921550004;ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.1502216210;ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input.986595252">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+</cproject>
