@@ -15,6 +15,12 @@
 	#define DS18B20_PIN	(13)
 #endif
 
+#define DS18B20_delay_us		SYSTICK_delay_us
+#define DS18B20_delay_ms		SYSTICK_delay_ms
+#define DS18B20_pin_write(x)	GPIO_write(DS18B20_PIN, x);
+#define DS18B20_pin_read()		GPIO_read(DS18B20_PIN)
+
+
 static volatile bool_e initialized = FALSE;
 
 static uint8_t DS18B20_Start (void);
@@ -46,18 +52,18 @@ int16_t DS18B20_get_temperature(void)
 		SYSTICK_delay_us(1000);
 		DS18B20_Write (0xCC);  // skip ROM
 		DS18B20_Write (0x44);  // convert t
-		SYSTICK_delay_ms(800);
+		DS18B20_delay_ms(800);
 
 		presence = DS18B20_Start();
 		if(presence)
 		{
-			SYSTICK_delay_us(1000);
+			DS18B20_delay_us(1000);
 			DS18B20_Write (0xCC);  // skip ROM
 			DS18B20_Write (0xBE);  // Read Scratch-pad
 
 
-			msb = DS18B20_Read();
 			lsb = DS18B20_Read();
+			msb = DS18B20_Read();
 		}
 	}
 
@@ -67,18 +73,16 @@ int16_t DS18B20_get_temperature(void)
 static uint8_t DS18B20_Start (void)
 {
 	uint8_t response = 0;
-	GPIO_write(DS18B20_PIN, 0);	 // pull the pin low
-	SYSTICK_delay_us(480);   // delay according to datasheet
+	DS18B20_pin_write(0);	 // pull the pin low
+	DS18B20_delay_us(480);   // delay according to datasheet
 
-	//Set_Pin_Input(DS18B20_PORT, DS18B20_PIN);    // set the pin as input
-	SYSTICK_delay_us(80);    // delay according to datasheet
+	DS18B20_pin_write(1);
+	DS18B20_delay_us(80);    // delay according to datasheet
 
 	if (!(GPIO_read(DS18B20_PIN)))
 		response = 1;    // if the pin is low i.e the presence pulse is detected
-	else
-		response = -1;
 
-	SYSTICK_delay_us(400); // 480 us delay totally.
+	DS18B20_delay_us(400); // 480 us delay totally.
 
 	return response;
 }
@@ -87,24 +91,23 @@ static void DS18B20_Write (uint8_t data)
 {
 	for(int i=0; i<8; i++)
 	{
-
 		if((data & (1<<i))!=0)  // if the bit is high
-		{
-			// write 1
-			GPIO_write(DS18B20_PIN, 0);  // pull the pin LOW
-			SYSTICK_delay_us(1);  // wait for 1 us
+		{	// write 1
+			DS18B20_pin_write(0);  // pull the pin LOW
+			DS18B20_delay_us(1);  // wait for 1 us
 
-			GPIO_write(DS18B20_PIN, 1);
-			SYSTICK_delay_us(50);  // wait for 60 us
+			DS18B20_pin_write(1);
+			DS18B20_delay_us(60);  // wait for 60 us
 		}
 
 		else  // if the bit is low
-		{
-			// write 0
-			GPIO_write(DS18B20_PIN, 0);
-			SYSTICK_delay_us(50);  // wait for 60 us
+		{	// write 0
 
-			GPIO_write(DS18B20_PIN, 1);
+			DS18B20_pin_write(0);
+			DS18B20_delay_us(60);  // wait for 60 us
+
+			DS18B20_pin_write(1);
+			DS18B20_delay_us(15);	//wait for pull up !
 		}
 	}
 }
@@ -115,15 +118,16 @@ static uint8_t DS18B20_Read (void)
 
 	for(int i=0;i<8;i++)
 	{
-		GPIO_write(DS18B20_PIN, 0);  // pull the data pin LOW
-		SYSTICK_delay_us(2);  // wait for 2 us
+		DS18B20_pin_write(0);  // pull the data pin LOW
+		DS18B20_delay_us(2);  // wait for 2 us
 
-		GPIO_write(DS18B20_PIN,1); // set as input
-		if(GPIO_read(DS18B20_PIN))  // if the pin is HIGH
+		DS18B20_pin_write(1); // set as input
+		DS18B20_delay_us(10);  // wait for pullup if the sensor do not write 0
+		if(DS18B20_pin_read())  // if the pin is HIGH
 		{
 			value |= 1<<i;  // read = 1
 		}
-		SYSTICK_delay_us(60);  // wait for 60 us
+		DS18B20_delay_us(50);  // wait for the remaining 50 us (50+10 = 60)
 	}
 	return value;
 }

@@ -24,6 +24,8 @@
 
 //Tout les includes des header des objets.
 #include "objects/sun4pool.h"
+#include "objects/remote4pumps.h"
+
 
 void button_network_process_short_press(void);
 void button_network_process_long_press(void);
@@ -106,6 +108,10 @@ int main(void)
     			SUN4POOL_state_machine();
 
     		#endif
+
+			#if OBJECT_ID == OBJECT_REMOTE4PUMPS
+    			REMOTE4PUMPS_state_machine();
+			#endif
     }
 }
 
@@ -118,7 +124,8 @@ char * object_id_to_string(uint8_t id)
 	switch(id)
 	{
 		case OBJECT_BASE_STATION:	ret = "Base Station";		break;
-		case OBJECT_SUN4POOL:		ret = "Sun4Pool";		break;
+		case OBJECT_SUN4POOL:		ret = "Sun4Pool";			break;
+		case OBJECT_REMOTE4PUMPS:	ret = "Remote4Pumps";		break;
 		default:
 			break;
 	}

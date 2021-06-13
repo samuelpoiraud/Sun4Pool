@@ -20,6 +20,7 @@
 //liste des objets
 #define OBJECT_BASE_STATION			0
 #define OBJECT_SUN4POOL				0x42
+#define OBJECT_REMOTE4PUMPS			0x43
 #define OBJECTS_NB					2
 
 
@@ -36,6 +37,10 @@
 	#define GPIO_RELAY_FILTER_PUMP		19
 	#define GPIO_RELAY_SOLAR_HEATER		20
 
+#endif
+
+#if OBJECT_ID == OBJECT_REMOTE4PUMPS
+	#define MPU6050_VCC_PIN 27
 #endif
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -57,7 +62,7 @@
 
 #define USE_SPI	0
 
-#define USE_TWI	0
+
 
 
 
@@ -120,7 +125,7 @@ uint32_t debug_printf(char * format, ...);
 #endif
 
 #ifndef USE_MPU6050
-	#define USE_MPU6050		0
+	#define USE_MPU6050		(OBJECT_ID == OBJECT_REMOTE4PUMPS)
 #endif
 
 #ifndef USE_BH1750FVI
@@ -148,12 +153,15 @@ uint32_t debug_printf(char * format, ...);
 #endif
 
 #if USE_MPU6050 || USE_BMP180 ||USE_BH1750FVI//   || USE_... || USE...
+	#define USE_TWI	1
 	#ifndef I2C_SDA_PIN_NB
 		#define	I2C_SDA_PIN_NB	25
 	#endif
 	#ifndef I2C_SCL_PIN_NB
 		#define	I2C_SCL_PIN_NB	26
 	#endif
+#else
+	#define USE_TWI	0
 #endif
 
 #if USE_MCP9804

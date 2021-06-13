@@ -7,6 +7,7 @@ $(OUTPUT_DIRECTORY)/nrf52832_xxaa.out: \
 SRC_FILES += \
   $(PROJ_DIR)/appli/main.c \
   $(PROJ_DIR)/appli/objects/sun4pool.c \
+  $(PROJ_DIR)/appli/objects/remote4pumps.c \
   $(PROJ_DIR)/appli/common/gpio.c \
   $(PROJ_DIR)/appli/common/systick.c \
   $(PROJ_DIR)/appli/common/leds.c \

@@ -36,6 +36,10 @@ typedef enum
 	PARAM_SOLAR_HEATER_PUMP_PERIOD,
 	PARAM_NIGHT_HOUR,
 	PARAM_DAY_HOUR,
+	PARAM_FORCE_FILTER_PUMP_ON_FOR_X_MS,		//force le fonctionnement de la pompe de filtrage pendant 1h
+	PARAM_FORCE_FILTER_PUMP_OFF_FOR_X_MS,		//force le non fonctionnement de la pompe de filtrage pendant 1h
+	PARAM_SET_TIME_TO_FORCE_SOLAR_HEATER_PUMP,	//ajoute une durée de forcage de la pompe du réchauffeur solaire
+
 	PARAM_32_BITS_NB,	//avant ce define, tout les paramètres tiennent sur 32 bits.
 
 	//Paramètres dont la taille dépasse 32 bits... et dont le traitement est spécifiquement confié à l'objet par des fonctions de callback.

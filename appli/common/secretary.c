@@ -158,7 +158,7 @@ void SECRETARY_frame_parse(nrf_esb_payload_t * payload, msg_source_e msg_source)
 			}
 			else{
 				//je suis un objet
-				if(recipient == OBJECT_ID)
+				if((recipient&0xFF) == OBJECT_ID)
 				{
 					//super, le message est pour moi !
 					RF_DIALOG_process_rx_object(payload);
